@@ -1,0 +1,15 @@
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.csproj.AssemblyReference.cache
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.GeneratedMSBuildEditorConfig.editorconfig
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.AssemblyInfoInputs.cache
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.AssemblyInfo.cs
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.csproj.CoreCompileInputs.cache
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\bin\Debug\net7.0\ChessBoardConsole.exe
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\bin\Debug\net7.0\ChessBoardConsole.deps.json
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\bin\Debug\net7.0\ChessBoardConsole.runtimeconfig.json
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\bin\Debug\net7.0\ChessBoardConsole.dll
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\bin\Debug\net7.0\ChessBoardConsole.pdb
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.dll
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\refint\ChessBoardConsole.dll
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.pdb
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.genruntimeconfig.cache
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ref\ChessBoardConsole.dll
