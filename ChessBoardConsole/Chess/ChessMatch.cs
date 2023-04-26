@@ -58,8 +58,8 @@ namespace Chess
 
         private void ExecuteCastlingShort(Position origin, Piece pieceToMove)
         {
-            Position rookOrigin = new Position(origin.Line, origin.Column + 3);
-            Position rookDestination = new Position(origin.Line, origin.Column + 1);
+            Position rookOrigin = new(origin.Line, origin.Column + 3);
+            Position rookDestination = new(origin.Line, origin.Column + 1);
             Piece rook = Board.RemovePieceFromBoard(rookOrigin);
             rook.IncreaseMovementQuantity();
             Board.AddPieceToBoard(rook, rookDestination);
@@ -67,8 +67,8 @@ namespace Chess
 
         private void ExecuteCastlingLong(Position origin, Piece pieceToMove)
         {
-            Position rookOrigin = new Position(origin.Line, origin.Column - 4);
-            Position rookDestination = new Position(origin.Line, origin.Column - 1);
+            Position rookOrigin = new(origin.Line, origin.Column - 4);
+            Position rookDestination = new(origin.Line, origin.Column - 1);
             Piece rook = Board.RemovePieceFromBoard(rookOrigin);
             rook.IncreaseMovementQuantity();
             Board.AddPieceToBoard(rook, rookDestination);
@@ -112,8 +112,8 @@ namespace Chess
         {
             if (pieceToGoBack is King && destination.Column == origin.Column + 2)
             {
-                Position rookOrigin = new Position(origin.Line, origin.Column + 3);
-                Position rookDestination = new Position(origin.Line, origin.Column + 1);
+                Position rookOrigin = new(origin.Line, origin.Column + 3);
+                Position rookDestination = new(origin.Line, origin.Column + 1);
                 Piece rook = Board.RemovePieceFromBoard(rookDestination);
                 rook.DecreaseMovementQuantity();
                 Board.AddPieceToBoard(rook, rookOrigin);
@@ -124,8 +124,8 @@ namespace Chess
         {
             if (pieceToGoBack is King && destination.Column == origin.Column - 2)
             {
-                Position rookOrigin = new Position(origin.Line, origin.Column - 4);
-                Position rookDestination = new Position(origin.Line, origin.Column - 1);
+                Position rookOrigin = new(origin.Line, origin.Column - 4);
+                Position rookDestination = new(origin.Line, origin.Column - 1);
                 Piece rook = Board.RemovePieceFromBoard(rookDestination);
                 rook.DecreaseMovementQuantity();
                 Board.AddPieceToBoard(rook, rookOrigin);

@@ -9,7 +9,7 @@ class GameController
     public static void Header()
     {
         Console.Clear();
-        Console.BackgroundColor = ConsoleColor.DarkBlue;
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("+-----------------------------------------+");
         Console.WriteLine("|                                         |");
         Console.WriteLine("|         Chess Board Game Console        |");
@@ -44,7 +44,7 @@ class GameController
         {
             Console.WriteLine("Check Mate!!!");
             Console.WriteLine("Winner: " + chessMatch.CurrentPlayer);
-            Console.WriteLine("Congratulations!");
+            Console.WriteLine("Congratulations!!!");
         }
         Console.WriteLine();
         PrintInPlayerColor(chessMatch, defaultColor);

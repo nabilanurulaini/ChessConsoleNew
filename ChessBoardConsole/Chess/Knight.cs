@@ -21,7 +21,7 @@ namespace Chess
         {
             bool[,] movementPossibilitiesMatrix = new bool[Board.Lines, Board.Columns];
             // Instantiate a new position with placeholder values
-            Position position = new Position(0, 0);
+            Position position = new(0, 0);
 
             // NW of the piece. Movement one
             position.DefineValues(Position.Line - 1, Position.Column - 2);

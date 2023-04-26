@@ -39,7 +39,7 @@ namespace Chess
         {
             bool[,] movementPossibilitiesMatrix = new bool[Board.Lines, Board.Columns];
             // Instantiate a new position with placeholder values
-            Position position = new Position(0, 0);
+            Position position = new(0, 0);
 
             // North of the piece
             position.DefineValues(Position.Line - 1, Position.Column);
@@ -93,23 +93,23 @@ namespace Chess
             if (NumberOfMoves == 0 && !_chessMatch.IsInCheck)
             {
                 // Castling Short
-                Position rookPosition1 = new Position(Position.Line, Position.Column + 3);
+                Position rookPosition1 = new(Position.Line, Position.Column + 3);
                 if (CanRookParticipateInCastling(rookPosition1))
                 {
-                    Position position1 = new Position(Position.Line, Position.Column + 1);
-                    Position position2 = new Position(Position.Line, Position.Column + 2);
+                    Position position1 = new(Position.Line, Position.Column + 1);
+                    Position position2 = new(Position.Line, Position.Column + 2);
                     if (Board.Piece(position1) == null && Board.Piece(position2) == null)
                     {
                         movementPossibilitiesMatrix[Position.Line, Position.Column + 2] = true;
                     }
                 }
                 // Castling Long
-                Position rookPosition2 = new Position(Position.Line, Position.Column - 4);
+                Position rookPosition2 = new(Position.Line, Position.Column - 4);
                 if (CanRookParticipateInCastling(rookPosition2))
                 {
-                    Position position1 = new Position(Position.Line, Position.Column - 1);
-                    Position position2 = new Position(Position.Line, Position.Column - 2);
-                    Position position3 = new Position(Position.Line, Position.Column - 3);
+                    Position position1 = new(Position.Line, Position.Column - 1);
+                    Position position2 = new(Position.Line, Position.Column - 2);
+                    Position position3 = new(Position.Line, Position.Column - 3);
                     if (Board.Piece(position1) == null && Board.Piece(position2) == null && Board.Piece(position3) == null)
                     {
                         movementPossibilitiesMatrix[Position.Line, Position.Column - 2] = true;

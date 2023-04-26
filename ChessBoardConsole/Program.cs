@@ -7,7 +7,7 @@ class Program
     {
         try
         {
-            ChessMatch chessMatch = new ChessMatch();
+            ChessMatch chessMatch = new();
             while (!chessMatch.MatchIsFinished)
             {
                 try
