@@ -6,24 +6,32 @@ using GameBoard;
 namespace ChessConsole;
 class GameController
 {
+    public static void Header()
+    {
+        Console.Clear();
+        Console.BackgroundColor = ConsoleColor.DarkBlue;
+        Console.WriteLine("+-----------------------------------------+");
+        Console.WriteLine("|                                         |");
+        Console.WriteLine("|         Chess Board Game Console        |");
+        Console.WriteLine("|                                         |");
+        Console.WriteLine("+-----------------------------------------+");
+        Console.WriteLine();
+        Console.ResetColor();
+    }
     public static void PrintMatchOriginPlay(ChessMatch chessMatch)
     {
         ConsoleColor defaultColor = Console.ForegroundColor;
         Console.Clear();
-        Console.WriteLine("+----------------------------------------+");
-        Console.WriteLine("|                                        |");
-        Console.WriteLine("|        Chess Board Game Console        |");
-        Console.WriteLine("|                                        |");
-        Console.WriteLine("+----------------------------------------+");
 
-        Console.WriteLine();
+        Header();
+
         PrintBoard(chessMatch.Board);
 
         Console.WriteLine();
         PrintCapturedPieces(chessMatch);
 
         Console.WriteLine();
-        Console.WriteLine($"Turn: {chessMatch.Turn}");
+        Console.WriteLine($"Turn {chessMatch.Turn}");
 
         if (!chessMatch.MatchIsFinished)
         {
@@ -45,15 +53,9 @@ class GameController
     }
     public static void PrintMatchDestinationPlay(ChessMatch chessMatch, bool[,] possiblePositions)
     {
+        Header();
+        
         ConsoleColor defaultColor = Console.ForegroundColor;
-        Console.Clear();
-        Console.WriteLine("+----------------------------------------+");
-        Console.WriteLine("|                                        |");
-        Console.WriteLine("|        Chess Board Game Console        |");
-        Console.WriteLine("|                                        |");
-        Console.WriteLine("+----------------------------------------+");
-
-        Console.WriteLine();
         PrintBoard(chessMatch.Board, possiblePositions);
 
         Console.WriteLine();
@@ -61,10 +63,12 @@ class GameController
 
 
         Console.WriteLine();
-        Console.WriteLine("Turn 1" + chessMatch.Turn);
-
+        Console.WriteLine("Turn " + chessMatch.Turn);
+        
         Console.Write("Current Player: ");
         PrintInPlayerColor(chessMatch, defaultColor);
+        //ReturnToDefaultColor(defaultColor);
+        // PrintInPlayerColor(chessMatch, defaultColor);
         Console.WriteLine(chessMatch.CurrentPlayer);
         ReturnToDefaultColor(defaultColor);
 
@@ -94,11 +98,11 @@ class GameController
     {
         ConsoleColor defaultColor = Console.ForegroundColor;
 
-        Console.Write("White: ");
+        Console.Write("White ");
         PrintListOfPieces(chessMatch.CapturedPieces(PieceColor.White));
 
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write(" Black: ");
+        Console.Write(" Black ");
         PrintListOfPieces(chessMatch.CapturedPieces(PieceColor.Black));
         Console.ForegroundColor = defaultColor;
         Console.WriteLine();
@@ -147,7 +151,7 @@ class GameController
     public static void PrintBoard(Board board, bool[,] possiblePositions)
     {
         ConsoleColor originalBackgroundColor = Console.BackgroundColor;
-        ConsoleColor alternativeBaclgroundColor = ConsoleColor.DarkGray;
+        ConsoleColor activePositionBackgroundColor = ConsoleColor.DarkGray;
 
         for (int i = 0; i < board.Lines; i++)
         {
@@ -159,7 +163,7 @@ class GameController
                 Console.Write("| ");
                 if (possiblePositions[i, j])
                 {
-                    Console.BackgroundColor = alternativeBaclgroundColor;
+                    Console.BackgroundColor = activePositionBackgroundColor;
                 }
                 else
                 {

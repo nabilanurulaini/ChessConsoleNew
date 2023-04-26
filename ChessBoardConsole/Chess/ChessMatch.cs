@@ -163,7 +163,7 @@ namespace Chess
 
             // Get a reference for the piece moved in this turn
             Piece pieceMovedInTheTurn = Board.Piece(destination);
-            // Special Play - Promotion
+            // Special Play - Promotion jika sudha mencapai ujung papan
             if (pieceMovedInTheTurn is Pawn)
             {
                 if (pieceMovedInTheTurn.Color == PieceColor.White && destination.Line == 0 || pieceMovedInTheTurn.Color == PieceColor.Black && destination.Line == 7)
@@ -208,14 +208,17 @@ namespace Chess
 
         public void ValidateOriginPosition(Position position)
         {
+            // Check if there is a Piece at the selected position
             if (Board.Piece(position) == null)
             {
                 throw new BoardException("There are no Pieces at the selected position.");
             }
+            // Check if the Piece at the selected position is the current player's Piece
             if (CurrentPlayer != Board.Piece(position).Color)
             {
                 throw new BoardException("A Player cannot move the adversary's Pieces.");
             }
+            // Check if the Piece at the selected position can move
             if (!Board.Piece(position).CanPieceMove())
             {
                 throw new BoardException("The Piece selected cannot make any moves.");

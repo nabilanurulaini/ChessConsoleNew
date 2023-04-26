@@ -12,7 +12,6 @@ class Program
             {
                 try
                 {
-                  
                     Console.Clear();
                     GameController.PrintMatchOriginPlay(chessMatch);
 
@@ -47,4 +46,3 @@ class Program
         Console.ReadKey();
     }
 }
-
