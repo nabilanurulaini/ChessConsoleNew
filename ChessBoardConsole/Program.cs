@@ -41,9 +41,9 @@ class Program
         }
         catch (BoardException e)
         {
-           WriteLine(e.Message);
+            WriteLine(e.Message);
             ReadLine();
         }
-       ReadKey();
+        ReadKey();
     }
 }

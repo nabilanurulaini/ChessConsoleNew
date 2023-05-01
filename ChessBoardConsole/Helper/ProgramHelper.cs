@@ -19,4 +19,13 @@ public static class ConsoleHelper {
         public static void Clear() {
             Console.Clear();
         }
+        public static void ResetColor() {
+            Console.ResetColor();
+        }
+        public static void ChangeBackgroundColor(ConsoleColor color) {
+            Console.BackgroundColor = color;
+        }
+        public static void ChangeForegroundColor(ConsoleColor color) {
+            Console.ForegroundColor = color;
+        }
     }
