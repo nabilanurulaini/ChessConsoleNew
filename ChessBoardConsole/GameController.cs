@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Chess;
 using GameBoard;
+using static Helper.ConsoleHelper;
 namespace ChessConsole;
 class GameController
 {
     public static void Header()
     {
-        Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Blue;
+       
+        
+        Clear();
+        Console.BackgroundColor = ConsoleColor.DarkBlue;
         Console.WriteLine("+-----------------------------------------+");
         Console.WriteLine("|                                         |");
         Console.WriteLine("|         Chess Board Game Console        |");
@@ -21,34 +21,34 @@ class GameController
     public static void PrintMatchOriginPlay(ChessMatch chessMatch)
     {
         ConsoleColor defaultColor = Console.ForegroundColor;
-        Console.Clear();
+        Clear();
 
         Header();
 
         PrintBoard(chessMatch.Board);
 
-        Console.WriteLine();
+        WriteLine("");
         PrintCapturedPieces(chessMatch);
 
-        Console.WriteLine();
-        Console.WriteLine($"Turn {chessMatch.Turn}");
+        WriteLine("");
+        WriteLine($"Turn {chessMatch.Turn}");
 
         if (!chessMatch.MatchIsFinished)
         {
-            Console.Write("Current Player: ");
+            Write("Current Player: ");
             PrintInPlayerColor(chessMatch, defaultColor);
-            Console.WriteLine(chessMatch.CurrentPlayer);
+            WriteLine(chessMatch.CurrentPlayer);
             ReturnToDefaultColor(defaultColor);
         }
         else
         {
-            Console.WriteLine("Check Mate!!!");
-            Console.WriteLine("Winner: " + chessMatch.CurrentPlayer);
-            Console.WriteLine("Congratulations!!!");
+            WriteLine("Check Mate!!!");
+            WriteLine("Winner: " + chessMatch.CurrentPlayer);
+            WriteLine("Congratulations!!!");
         }
-        Console.WriteLine();
+        WriteLine("");
         PrintInPlayerColor(chessMatch, defaultColor);
-        Console.Write("Origin: ");
+        Write("Origin: ");
         ReturnToDefaultColor(defaultColor);
     }
     public static void PrintMatchDestinationPlay(ChessMatch chessMatch, bool[,] possiblePositions)
@@ -58,23 +58,23 @@ class GameController
         ConsoleColor defaultColor = Console.ForegroundColor;
         PrintBoard(chessMatch.Board, possiblePositions);
 
-        Console.WriteLine();
+        WriteLine("");
         PrintCapturedPieces(chessMatch);
 
 
-        Console.WriteLine();
-        Console.WriteLine("Turn " + chessMatch.Turn);
+        WriteLine("");
+        WriteLine("Turn " + chessMatch.Turn);
         
-        Console.Write("Current Player: ");
+       Write("Current Player: ");
         PrintInPlayerColor(chessMatch, defaultColor);
         //ReturnToDefaultColor(defaultColor);
         // PrintInPlayerColor(chessMatch, defaultColor);
-        Console.WriteLine(chessMatch.CurrentPlayer);
+        WriteLine(chessMatch.CurrentPlayer);
         ReturnToDefaultColor(defaultColor);
 
-        Console.WriteLine();
+        WriteLine("");
         PrintInPlayerColor(chessMatch, defaultColor);
-        Console.Write("Destination: ");
+        Write("Destination: ");
         ReturnToDefaultColor(defaultColor);
     }
     private static void PrintInPlayerColor(ChessMatch chessMatch, ConsoleColor defaultColor)
@@ -98,54 +98,54 @@ class GameController
     {
         ConsoleColor defaultColor = Console.ForegroundColor;
 
-        Console.Write("White ");
+        Write("White ");
         PrintListOfPieces(chessMatch.CapturedPieces(PieceColor.White));
 
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.Write(" Black ");
+        Write(" Black ");
         PrintListOfPieces(chessMatch.CapturedPieces(PieceColor.Black));
         Console.ForegroundColor = defaultColor;
-        Console.WriteLine();
+        WriteLine("");
     }
 
     private static void PrintListOfPieces(List<Piece> capturedPieces)
     {
-        Console.Write("[");
+        Write("[");
         foreach (Piece piece in capturedPieces)
         {
             //if (piece.Color == Color.Black) 
-            Console.Write(piece + " ");
+            Write(piece + " ");
         }
-        Console.Write("]");
+        Write("]");
     }
 
     public static void PrintBoard(Board board)
     {
         for (int i = 0; i < board.Lines; i++)
         {
-            Console.Write(" ");
+            Write(" ");
             PrintEdge(board);
-            Console.Write(8 - i);
+            Write(8 - i);
             for (int j = 0; j < board.Columns; j++)
             {
-                Console.Write("| ");
+                Write("| ");
                 PrintPiece(board.Piece(i, j));
             }
-            Console.Write("|");
-            Console.WriteLine();
+            Write("|");
+            WriteLine("");
         }
-        Console.Write(" ");
+        Write(" ");
         PrintEdge(board);
-        Console.WriteLine("   a    b    c    d    e    f    g    h");
+        WriteLine("   a    b    c    d    e    f    g    h");
     }
     public static void PrintEdge(Board board)
     {
         for (int x = 0; x < board.Lines; x++)
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write("+----");
+            Write("+----");
         }
-        Console.WriteLine("+");
+        WriteLine("+");
     }
     //board kedua untuk possible positions
     public static void PrintBoard(Board board, bool[,] possiblePositions)
@@ -155,9 +155,9 @@ class GameController
 
         for (int i = 0; i < board.Lines; i++)
         {
-            Console.Write(" ");
+            Write(" ");
             PrintEdge(board);
-            Console.Write(8 - i);
+            Write(8 - i);
             for (int j = 0; j < board.Columns; j++)
             {
                 Console.Write("| ");
@@ -173,12 +173,12 @@ class GameController
 
                 Console.BackgroundColor = originalBackgroundColor;
             }
-            Console.Write("|");
-            Console.WriteLine();
+            Write("|");
+            WriteLine("");
         }
-        Console.Write(" ");
+        Write(" ");
         PrintEdge(board);
-        Console.WriteLine("   a    b    c    d    e    f    g    h");
+        WriteLine("   a    b    c    d    e    f    g    h");
         Console.BackgroundColor = originalBackgroundColor;
     }
 
@@ -194,22 +194,22 @@ class GameController
     {
         if (piece == null)
         {
-            Console.Write("-  ");
+            Write("-  ");
         }
         else
         {
             if (piece.Color == PieceColor.White)
             {
-                Console.Write(piece);
+                Write(piece);
             }
             else
             {
                 ConsoleColor defaultColor = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(piece);
+                Write(piece);
                 Console.ForegroundColor = defaultColor;
             }
-            Console.Write("  ");
+            Write("  ");
         }
     }
 }

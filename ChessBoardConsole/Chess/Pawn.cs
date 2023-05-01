@@ -31,7 +31,7 @@ namespace Chess
         {
             bool[,] movementPossibilitiesMatrix = new bool[Board.Lines, Board.Columns];
             // Instantiate a new position with placeholder values
-            Position position = new Position(0, 0);
+            Position position = new(0, 0);
 
             if (Color == PieceColor.White)
             {
@@ -63,12 +63,12 @@ namespace Chess
                 // Move the piece to the NW direction and capture the piece at its left or move the piece to the NE direction and capture the piece at its right
                 if (Position.Line == 3)
                 {
-                    Position positionToTheLeft = new Position(Position.Line, Position.Column - 1);
+                    Position positionToTheLeft = new(Position.Line, Position.Column - 1);
                     if (Board.ValidPosition(positionToTheLeft) && IsEnemyAtPosition(positionToTheLeft) && Board.Piece(positionToTheLeft) == _chessMatch.VulnerableToEnPassant)
                     {
                         movementPossibilitiesMatrix[positionToTheLeft.Line - 1, positionToTheLeft.Column] = true;
                     }
-                    Position positionToTheRight = new Position(Position.Line, Position.Column + 1);
+                    Position positionToTheRight = new(Position.Line, Position.Column + 1);
                     if (Board.ValidPosition(positionToTheRight) && IsEnemyAtPosition(positionToTheRight) && Board.Piece(positionToTheRight) == _chessMatch.VulnerableToEnPassant)
                         movementPossibilitiesMatrix[positionToTheRight.Line - 1, positionToTheRight.Column] = true;
                 }
@@ -103,12 +103,12 @@ namespace Chess
                 // Move the piece to the SW direction and capture the piece at its left or move the piece to the SE direction and capture the piece at its right
                 if (Position.Line == 4)
                 {
-                    Position positionToTheLeft = new Position(Position.Line, Position.Column - 1);
+                    Position positionToTheLeft = new(Position.Line, Position.Column - 1);
                     if (Board.ValidPosition(positionToTheLeft) && IsEnemyAtPosition(positionToTheLeft) && Board.Piece(positionToTheLeft) == _chessMatch.VulnerableToEnPassant)
                     {
                         movementPossibilitiesMatrix[positionToTheLeft.Line + 1, positionToTheLeft.Column] = true;
                     }
-                    Position positionToTheRight = new Position(Position.Line, Position.Column + 1);
+                    Position positionToTheRight = new(Position.Line, Position.Column + 1);
                     if (Board.ValidPosition(positionToTheRight) && IsEnemyAtPosition(positionToTheRight) && Board.Piece(positionToTheRight) == _chessMatch.VulnerableToEnPassant)
                     {
                         movementPossibilitiesMatrix[positionToTheRight.Line + 1, positionToTheRight.Column] = true;

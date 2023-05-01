@@ -1,5 +1,6 @@
 ﻿using GameBoard;
 using Chess;
+using static Helper.ConsoleHelper;
 namespace ChessConsole;
 class Program
 {
@@ -12,7 +13,7 @@ class Program
             {
                 try
                 {
-                    Console.Clear();
+                    Clear();
                     GameController.PrintMatchOriginPlay(chessMatch);
 
                     Position origin = GameController.ReadChessPosition().ToPosition();
@@ -20,7 +21,7 @@ class Program
 
                     bool[,] possiblePositions = chessMatch.Board.Piece(origin).PossibleMovements();
 
-                    Console.Clear();
+                    Clear();
                     GameController.PrintMatchDestinationPlay(chessMatch, possiblePositions);
 
                     Position destination = GameController.ReadChessPosition().ToPosition();
@@ -30,19 +31,19 @@ class Program
                 }
                 catch (BoardException e)
                 {
-                    Console.WriteLine(e.Message);
-                    Console.ReadLine();
+                    WriteLine(e.Message);
+                    ReadLine();
                 }
             }
 
-            Console.Clear();
+            Clear();
             GameController.PrintMatchOriginPlay(chessMatch);
         }
         catch (BoardException e)
         {
-            Console.WriteLine(e.Message);
-            Console.ReadLine();
+           WriteLine(e.Message);
+            ReadLine();
         }
-        Console.ReadKey();
+       ReadKey();
     }
 }

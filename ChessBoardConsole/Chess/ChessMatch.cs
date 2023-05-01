@@ -247,7 +247,7 @@ namespace Chess
 
         public List<Piece> CapturedPieces(PieceColor pieceColor)
         {
-            List<Piece> auxList = new List<Piece>();
+            List<Piece> auxList = new();
             foreach (Piece piece in _piecesCaptured)
             {
                 if (piece.Color == pieceColor)
@@ -260,7 +260,7 @@ namespace Chess
 
         public List<Piece> PiecesInGame(PieceColor pieceColor)
         {
-            List<Piece> auxList = new List<Piece>();
+            List<Piece> auxList = new();
             foreach (Piece piece in _piecesInGame)
             {
                 if (piece.Color == pieceColor)
@@ -380,7 +380,7 @@ namespace Chess
                         if (possibleMovementsMatrix[i, j])
                         {
                             Position origin = piece.Position;
-                            Position destination = new Position(i, j);
+                            Position destination = new(i, j);
                             Piece capturedPiece = ExecuteMovement(origin, destination);
                             bool isKingInCheck = IsKingInCheck(color);
                             UndoMovement(origin, destination, capturedPiece);
