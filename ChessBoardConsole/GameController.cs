@@ -7,6 +7,7 @@ class GameController
     public static void Header()
     {
         Clear();
+        Clear();
         ChangeBackgroundColor(ConsoleColor.DarkBlue);
         WriteLine("+-----------------------------------------+");
         WriteLine("|                                         |");
@@ -79,7 +80,7 @@ class GameController
     {
         if (chessMatch.CurrentPlayer == PieceColor.Black)
         {
-            ChangeForegroundColor(ConsoleColor.Yellow);
+            ChangeForegroundColor(ConsoleColor.DarkYellow);
         }
         else
         {
@@ -99,7 +100,7 @@ class GameController
         Write("White ");
         PrintListOfPieces(chessMatch.CapturedPieces(PieceColor.White));
 
-        ChangeForegroundColor(ConsoleColor.Yellow);
+        ChangeForegroundColor(ConsoleColor.DarkYellow);
         Write(" Black ");
         PrintListOfPieces(chessMatch.CapturedPieces(PieceColor.Black));
         ChangeForegroundColor(defaultColor);

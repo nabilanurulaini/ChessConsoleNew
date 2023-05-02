@@ -1,16 +1,21 @@
 ﻿using GameBoard;
 using Chess;
+using NLog;
 using static Helper.ConsoleHelper;
 namespace ChessConsole;
 class Program
 {
+    private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     static void Main()
     {
+        LogManager.LoadConfiguration(Path.Combine(Directory.GetCurrentDirectory(), "log.config"));
+        logger.Info("Chess Application Started Now");
         try
         {
             ChessMatch chessMatch = new();
             while (!chessMatch.MatchIsFinished)
             {
+                 
                 try
                 {
                     Clear();
@@ -45,5 +50,6 @@ class Program
             ReadLine();
         }
         ReadKey();
+        logger.Info("Chess Console Application Finished");
     }
 }

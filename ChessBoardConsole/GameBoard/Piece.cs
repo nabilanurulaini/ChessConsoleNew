@@ -13,9 +13,9 @@ abstract class Piece
     public Piece(PieceColor color, Board board)
     {
         Position = null;
-            Color = color;
-            NumberOfMoves = 0;
-            Board = board;
+        Color = color;
+        NumberOfMoves = 0;
+        Board = board;
     }
     // method to increment movement quantity
     public void IncreaseMovementQuantity()
@@ -35,12 +35,12 @@ abstract class Piece
         // call the PossibleMovements() method to check the possible movements dengan bentuk matrix bool 2D
         bool[,] possibleMovementsMatrix = PossibleMovements();
         //checking each Lines/row and columns
-        for(int i = 0; i < Board.Lines; i++)
+        for (int i = 0; i < Board.Lines; i++)
         {
-            for(int j = 0; j < Board.Columns; j++)
+            for (int j = 0; j < Board.Columns; j++)
             {
                 // check if the value of current position is true
-                if(possibleMovementsMatrix[i, j])
+                if (possibleMovementsMatrix[i, j])
                 {
                     return true;
                 }

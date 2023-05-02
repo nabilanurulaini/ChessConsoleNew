@@ -1,0 +1,5 @@
+2023-05-02 10:19:37.6671 Info Chess Console Application Started 
+2023-05-02 10:48:27.4600 Info Chess Console Application Started 
+2023-05-02 10:49:11.9653 Info Chess Console Application Started Now 
+2023-05-02 10:50:50.7319 Info Chess Console Application Started Now 
+2023-05-02 11:01:24.8547 Info Chess Application Started Now 
