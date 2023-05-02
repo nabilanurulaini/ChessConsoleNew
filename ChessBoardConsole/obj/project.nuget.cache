@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zEl8fbxUzB9070UXlUp3CJsZa7oOE5j5SFsULM3CywJ0roWKYwNMc5t8qFAf0+KwqJfa2kcv2LuiQNXL3bsKQQ==",
+  "dgSpecHash": "gBDLJ5e3R3NIjDsHy/Y2XpY++ODTM9wSSWNLNW3CVFmOIbC0IyDaf4zysZLHzSWRSnEXNLlv/CPgOhAB7cv6dA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Formulatrix\\Documents\\ChessConsoleNew\\ChessBoardConsole\\ChessBoardConsole.csproj",
+  "projectFilePath": "c:\\Nabila\\Assignment\\ChessBoardConsole\\ChessBoardConsole\\ChessBoardConsole.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Formulatrix\\.nuget\\packages\\nlog\\5.1.4\\nlog.5.1.4.nupkg.sha512"
+    "C:\\Users\\HP\\.nuget\\packages\\nlog\\5.1.4\\nlog.5.1.4.nupkg.sha512"
   ],
   "logs": []
 }

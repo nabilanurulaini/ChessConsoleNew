@@ -8,7 +8,7 @@ class Program
     private static readonly Logger logger = LogManager.GetCurrentClassLogger();
     static void Main()
     {
-        LogManager.LoadConfiguration(Path.Combine(Directory.GetCurrentDirectory(), "log.config"));
+        LogManager.LoadConfiguration(Path.Combine(Directory.GetCurrentDirectory(), "nlog.config"));
         logger.Info("Chess Application Started Now");
         try
         {
@@ -22,7 +22,9 @@ class Program
                     GameController.PrintMatchOriginPlay(chessMatch);
 
                     Position origin = GameController.ReadChessPosition().ToPosition();
+                    logger.Info("Origin Position: " + origin);
                     chessMatch.ValidateOriginPosition(origin);
+                    
 
                     bool[,] possiblePositions = chessMatch.Board.Piece(origin).PossibleMovements();
 
@@ -30,6 +32,7 @@ class Program
                     GameController.PrintMatchDestinationPlay(chessMatch, possiblePositions);
 
                     Position destination = GameController.ReadChessPosition().ToPosition();
+                    logger.Info("Destination Position: " + destination);
                     chessMatch.ValidateDestinationPosition(origin, destination);
 
                     chessMatch.ExecutePlay(origin, destination);
@@ -37,6 +40,7 @@ class Program
                 catch (BoardException e)
                 {
                     WriteLine(e.Message);
+                    logger.Error(e.Message);
                     ReadLine();
                 }
             }

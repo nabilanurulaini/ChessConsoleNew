@@ -30,3 +30,5 @@ C:\Users\Formulatrix\Documents\ChessConsoleNew\ChessBoardConsole\obj\Debug\net7.
 C:\Users\Formulatrix\Documents\ChessConsoleNew\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.pdb
 c:\Users\Formulatrix\Documents\ChessConsoleNew\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.genruntimeconfig.cache
 c:\Users\Formulatrix\Documents\ChessConsoleNew\ChessBoardConsole\obj\Debug\net7.0\ref\ChessBoardConsole.dll
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\bin\Debug\net7.0\NLog.dll
+c:\Nabila\Assignment\ChessBoardConsole\ChessBoardConsole\obj\Debug\net7.0\ChessBoardConsole.csproj.CopyComplete
