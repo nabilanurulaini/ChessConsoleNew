@@ -1,4 +1,6 @@
 using Chess;
+using Move;
+using PieceColors;
 using GameBoard;
 using static Helper.ConsoleHelper;
 namespace ChessConsole;

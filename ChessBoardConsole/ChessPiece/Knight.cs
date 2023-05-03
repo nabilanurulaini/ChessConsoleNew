@@ -1,8 +1,10 @@
+using PieceColors;
+using Move;
 using GameBoard;
 
 namespace Chess
 {
-    class Knight : Piece
+    class Knight : Piece, IMove
     {
         public Knight(PieceColor color, Board board) : base(color, board) { }
 
@@ -11,7 +13,7 @@ namespace Chess
             return "N";
         }
 
-        private bool CanMoveToPosition(Position positionOfDestination)
+        public bool CanMoveToPosition(Position positionOfDestination)
         {
             Piece potentialPieceAtDestination = Board.Piece(positionOfDestination);
             return potentialPieceAtDestination == null || potentialPieceAtDestination.Color != Color;

@@ -1,7 +1,8 @@
 using GameBoard;
 using System.Collections.Generic;
 using System.Linq;
-
+using Move;
+using PieceColors;
 namespace Chess
 {
     class ChessMatch

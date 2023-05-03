@@ -1,4 +1,4 @@
-namespace GameBoard;
+namespace PieceColors;
 
 public enum PieceColor
 {

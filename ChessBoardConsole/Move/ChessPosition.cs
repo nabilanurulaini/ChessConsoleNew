@@ -1,6 +1,6 @@
 using GameBoard;
 
-namespace Chess
+namespace Move
 {
     class ChessPosition
     {

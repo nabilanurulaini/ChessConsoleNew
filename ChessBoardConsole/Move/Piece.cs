@@ -1,3 +1,4 @@
+using PieceColors;
 namespace GameBoard;
 
 abstract class Piece

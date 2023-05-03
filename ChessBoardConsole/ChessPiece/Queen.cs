@@ -1,18 +1,19 @@
-
+using PieceColors;
 using GameBoard;
+using Move;
 
 namespace Chess
 {
-    class Bishop : Piece
+    class Queen : Piece, IMove
     {
-        public Bishop(PieceColor color, Board board) : base(color, board) { }
+        public Queen(PieceColor color, Board board) : base(color, board) { }
 
         public override string ToString()
         {
-            return "B";
+            return "Q";
         }
 
-        private bool CanMoveToPosition(Position positionOfDestination)
+        public bool CanMoveToPosition(Position positionOfDestination)
         {
             Piece potentialPieceAtDestination = Board.Piece(positionOfDestination);
             return potentialPieceAtDestination == null || potentialPieceAtDestination.Color != Color;
@@ -24,11 +25,10 @@ namespace Chess
             // Instantiate a new position with placeholder values
             Position position = new(0, 0);
 
-            // NW 
+            // NW of the piece
             position.DefineValues(Position.Line - 1, Position.Column - 1);
             while (Board.ValidPosition(position) && CanMoveToPosition(position))
             {
-                //set the position as a possible movement in maovementPossibilitiesMatrix
                 movementPossibilitiesMatrix[position.Line, position.Column] = true;
                 // Forced stop when the Bishop meets an adversary Piece
                 if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
@@ -37,11 +37,22 @@ namespace Chess
                 }
                 position.DefineValues(position.Line - 1, position.Column - 1);
             }
-            // NE 
+            // North of the piece
+            position.DefineValues(Position.Line - 1, Position.Column);
+            while (Board.ValidPosition(position) && CanMoveToPosition(position))
+            {
+                movementPossibilitiesMatrix[position.Line, position.Column] = true;
+                // Forced stop when the Tower meets an adversary Piece
+                if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
+                {
+                    break;
+                }
+                position.Line--;
+            }
+            // NE of the piece
             position.DefineValues(Position.Line - 1, Position.Column + 1);
             while (Board.ValidPosition(position) && CanMoveToPosition(position))
             {
-                //set the position as a possible movement in maovementPossibilitiesMatrix
                 movementPossibilitiesMatrix[position.Line, position.Column] = true;
                 if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
                 {
@@ -49,11 +60,21 @@ namespace Chess
                 }
                 position.DefineValues(position.Line - 1, position.Column + 1);
             }
-            // SE 
+            // East of the piece
+            position.DefineValues(Position.Line, Position.Column + 1);
+            while (Board.ValidPosition(position) && CanMoveToPosition(position))
+            {
+                movementPossibilitiesMatrix[position.Line, position.Column] = true;
+                if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
+                {
+                    break;
+                }
+                position.Column++;
+            }
+            // SE of the piece
             position.DefineValues(Position.Line + 1, Position.Column + 1);
             while (Board.ValidPosition(position) && CanMoveToPosition(position))
             {
-                //set the position as a possible movement in maovementPossibilitiesMatrix
                 movementPossibilitiesMatrix[position.Line, position.Column] = true;
                 if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
                 {
@@ -61,17 +82,38 @@ namespace Chess
                 }
                 position.DefineValues(position.Line + 1, position.Column + 1);
             }
-            // SW 
+            // South of the piece
+            position.DefineValues(Position.Line + 1, Position.Column);
+            while (Board.ValidPosition(position) && CanMoveToPosition(position))
+            {
+                movementPossibilitiesMatrix[position.Line, position.Column] = true;
+                if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
+                {
+                    break;
+                }
+                position.Line++;
+            }
+            // SW of the piece
             position.DefineValues(Position.Line + 1, Position.Column - 1);
             while (Board.ValidPosition(position) && CanMoveToPosition(position))
             {
-                //set the position as a possible movement in maovementPossibilitiesMatrix
                 movementPossibilitiesMatrix[position.Line, position.Column] = true;
                 if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
                 {
                     break;
                 }
                 position.DefineValues(position.Line + 1, position.Column - 1);
+            }
+            // West of the piece
+            position.DefineValues(Position.Line, Position.Column - 1);
+            while (Board.ValidPosition(position) && CanMoveToPosition(position))
+            {
+                movementPossibilitiesMatrix[position.Line, position.Column] = true;
+                if (Board.Piece(position) != null && Board.Piece(position).Color != Color)
+                {
+                    break;
+                }
+                position.Column--;
             }
 
             return movementPossibilitiesMatrix;
